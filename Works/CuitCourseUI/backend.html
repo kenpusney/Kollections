@@ -1,0 +1,246 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ice="http://ns.adobe.com/incontextediting">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>后台管理页面</title>
+	<style type="text/css">
+		.container {
+			margin-right: 15%;
+			margin-left: 15%;
+		}
+		.header {
+			border-bottom-width: thin;
+			border-bottom-style: solid;
+			background-color: #999;
+			padding: 12px;
+		}
+		.sidebar {
+			border-right-width: thin;
+			border-right-style: solid;
+			float: left;
+			width: 20%;
+			height: 100%;
+			padding: 12px;
+			margin: 3px;
+			background-color: #9CC;
+		}
+		.sidebar a {
+			text-decoration: none;
+		}
+		.content {
+			margin: 3px;
+			padding: 12px;
+			float: right;
+			width: 70%;
+		}
+
+		.AddNewUser form div input {
+
+		}
+
+		.pagejumper {
+			text-align: center;
+			font-size: 12px;
+		}
+		.SysNotice {
+			font-family: "Courier New", Courier, monospace;
+			font-size: 12px;
+			background-color: #CCC;
+			padding: 12px;
+			text-indent: 24px;
+		}
+		.SysNoticeShow {
+		}
+	</style>
+	<script src="SpryAssets/SpryAccordion.js" type="text/javascript"></script>
+	<script src="JS/jquery-1.7.1.js" type="text/javascript"></script>
+	<script type="text/javascript" >
+		//函数会根据你想要的内容显示有关的东西可以设置为链接点击的URL
+		function LinkOnClick(Link){
+			$(".content > div").css("display","none");
+			$(Link).css("display","");
+			}
+	</script>
+	<link href="SpryAssets/SpryAccordion.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+	<div class="container">
+		<div class="header">
+			<h1>欢迎来到后台管理页面</h1>
+		</div>
+
+	<!--能够动态显示的菜单栏-->
+	<div class="sidebar">
+		<div id="Accordion1" class="Accordion" tabindex="0">
+			<div class="AccordionPanel">
+				<div class="AccordionPanelTab">公告</div>
+				<div class="AccordionPanelContent">
+					<a href="javascript:LinkOnClick('.SysNoticeShow')">查看当前公告</a><br />
+					<a href="javascript:LinkOnClick('.SysNoticeEdit')">修改公告</a>
+				</div>
+			</div>
+			<div class="AccordionPanel">
+				<div class="AccordionPanelTab">用户</div>
+				<div class="AccordionPanelContent">
+					<a href="javascript:LinkOnClick('.AddNewUser')">添加新用户</a><br />
+					<a href="javascript:LinkOnClick('.ManageUser')">管理用户</a>
+				</div>
+			</div>
+			<div class="AccordionPanel">
+				<div class="AccordionPanelTab">文章</div>
+				<div class="AccordionPanelContent">
+					<a href="javascript:LinkOnClick('.AddNewArticle')">添加新文章</a><br />
+					<a href="javascript:LinkOnClick('.ManageArticle')">管理文章</a>
+				</div>
+			</div>
+			<div class="AccordionPanel">
+				<div class="AccordionPanelTab">链接</div>
+				<div class="AccordionPanelContent"><a href="javascript:LinkOnClick('.ManageLink')">链接管理</a></div>
+			</div>
+		</div>
+	</div>
+	<div class="content">
+
+	<!--欢迎页面-->
+	<div class="Welcome"><h1>首页</h1><hr />
+		<div class="SysNotice">
+		<p>欢迎来到后台管理页面,您可以通过左侧的边栏选择需要进行的操作.</p>
+		</div>
+	</div>
+
+	<!--查看公告-->
+	<div class="SysNoticeShow" style="display:none;">
+		<div style="float:right;font-size:12px;font-family:'Courier New', Courier, monospace;text-align:left">
+		<a href="javascript:LinkOnClick('.SysNoticeEdit')">编辑</a>
+		</div>
+		<h1>当前公告</h1><hr />
+		<div class="SysNotice">
+			<p>这里是当前正在展示的公告很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长,好吧,希望你能注意到他的段落格式了
+			<p />嗯,他是自动对齐和缩进的.</p>
+		</div>
+	</div>
+
+	<!--管理公告-->
+	<div class="SysNoticeEdit" style="display:none;">管理公告</h1><hr />
+		<form id="form1" name="form1" method="post" action="">
+			<p>
+				<label for="sysnotice">请输入公告:</label>
+			</p>
+			<div style="margin-left:10%;margin-right:10%;padding:12px;">
+				<p>
+					<textarea name="sysnotice" id="sysnotice" cols="50" rows="6"></textarea>
+				</p>
+				<div style="padding-right:10%;float:right;">
+					<input type="submit" name="submit" id="submit" value="提交" />
+					<input type="button" name="cancel" id="cancel" value="取消" />
+				</div>
+			</div>
+		</form>
+	</div>
+	<div class="AddNewUser" style="display:none;"><h1>添加用户</h1><hr />
+		<form>
+			<div style="margin-left:15%;margin-right:30%;padding:18px;text-align:right;font-size:12px;">
+				<label for="username">用户名:</label>
+				<input name="username" type="text" /><br />
+				<label for="username">密码:</label>
+				<input name="username" type="text" /><br />
+				<label for="username">真实姓名:</label>
+				<input name="username" type="text" /><br />
+				<label for="username">学号:</label>
+				<input name="username" type="text" />
+			</div>
+			<div align="center">
+				<input type="submit" name="submit" id="submit" value="提交" />
+			</div>
+		</form>
+	</div>
+	<div class="ManageUser" style="display:none;">
+		<h1>管理用户</h1>
+		<hr />
+		<div class="userlist">
+			<table width="447" border="0" align="center">
+				<tr>
+					<td width="119">用户名</td>
+					<td width="139">学号</td>
+					<td width="110">真实姓名</td>
+				  <td width="61"></td>
+				</tr>
+				<tr>
+					<td>XXXX</td>
+					<td>12345678</td>
+					<td>1234</td>
+					<td><a href="">编辑</a></td>
+				</tr>
+			</table>
+			<div class="pagejumper">
+				<a href="">上一页</a>
+				<span style="padding-left:20px;padding-right:20px">当前第 <span id="current-page">x</span> 页,共 <span id="total-page">y</span> 页</span>
+				<a href="">下一页</a>
+			</div>
+		</div>
+	</div>
+	<div class="AddNewArticle" style="display:none;"><h1>添加新文章</h1><hr />
+	  <form id="form1" name="form1" method="post" action="">
+		<div style="margin-left:10%;margin-right:10%;padding:12px;">
+		  <div style="padding-top:12px;padding-bottom:12px;margin-bottom:6px;"><label for="title">请输入标题:</label><br /><input name="title" type="text" /></div>
+		  <label for="sysnotice">请输入内容:</label>
+		   <textarea name="sysnotice" id="sysnotice" cols="50" rows="6"></textarea>
+		  <div style="padding-top:12px;padding-bottom:12px;margin-bottom:6px;"><label for="title">请输入分类:</label><br /><input name="title" type="text" /></div>
+		  <div style="padding-right:10%;float:right;">
+			<input type="submit" name="submit" id="submit" value="提交" />
+			<input type="button" name="cancel" id="cancel" value="取消" />
+		  </div>
+		</div>
+	  </form>
+	</div>
+	<div class="ManageArticle" style="display:none;"><h1>管理文章</h1><hr />
+		<div class="articlelist">
+			<table width="447" border="0" align="center">
+				<tr>
+					<td width="119">标题</td>
+					<td width="139">分类</td>
+					<td width="110">ID</td>
+				  <td width="61"></td>
+			  </tr>
+				  <tr>
+					<td>XXXX</td>
+					<td>新闻</td>
+					<td>1234</td>
+					<td><a href="">编辑</a></td>
+				  </tr>
+			</table>
+			 <div class="pagejumper"><a href="">上一页</a><span style="padding-left:20px;padding-right:20px">当前第 <span id="current-page">x</span> 页,共 <span id="total-page">y</span> 页</span><a href="">下一页</a></div>
+		  </div>
+	</div>
+	<div class="ManageLink" style="display:none;"><h1>管理链接</h1><hr />
+		<div class="userlist">
+			<table width="447" border="0" align="center">
+				<tr>
+					<td width="119">链接名称</td>
+					<td width="139">链接地址</td>
+					<td width="110">优先级</td>
+				  <td width="61"></td>
+			  </tr>
+				  <tr>
+					<td>XXXX</td>
+					<td>http://baidu.com</td>
+					<td>1</td>
+					<td><a href="">编辑</a></td>
+				  </tr>
+			</table>
+			 <div class="pagejumper"><a href="">上一页</a><span style="padding-left:20px;padding-right:20px">当前第 <span id="current-page">x</span> 页,共 <span id="total-page">y</span> 页</span><a href="">下一页</a></div>
+		  </div>
+	</div>
+	<div class="" style="display:none"><h1>首页</h1><hr />
+		<div class="SysNotice">
+		<p>欢迎来到后台管理页面,您可以通过左侧的边栏选择需要进行的操作.</p>
+			</div>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">
+		var Accordion1 = new Spry.Widget.Accordion("Accordion1");
+	</script>
+</body>
+</html>
