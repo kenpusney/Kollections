@@ -1,0 +1,30 @@
+<?php //header.php
+
+//包含functions脚本
+include('includes/functions.php'); ?>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  
+
+  <meta name="Generator" content="EditPlus">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <meta http-equiv="eontent-type" content="text/html; charset=utf-8" />
+  <meta http-equiv="pragma" content="no-cache" />
+  <meta http-equiv="Cache-Control" content="no-cache,must-revalidate" />
+  <link rel="stylesheet" media="all" href="css/style.css" />
+  <title><?php //打印页面标题
+  if(defined('TITLE')) {// Is the title defined?
+  print TITLE;
+  }else{//标题未设定
+  print 'My Site of Quotes';
+  }
+  ?></title>
+ </head>
+
+ <body>
+  <div id="container">
+  <h1>My Site of Quotes</h1>
+  <br/>

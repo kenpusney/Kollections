@@ -1,0 +1,19 @@
+<?php // footer.html
+
+//显示管理链接
+//如果用户是管理员且当前页面不为logout.php
+//或者$loggedin变量为TRUE
+if( (is_administrator() && (basename($_SERVER['PHP_SELF']) != 'logout.php'))
+OR (isset($loggedin) && $loggedin) ) {
+//创建链接
+print '<br /><h3>Site Addmin</h3><p><a href="add_quote.php">Add quote</a><->
+<a href="view_quotes.php">View All quotes</a><->
+<a href="logout.php">Logout</a></p>';
+
+}
+
+?>
+</div><!--容器-->
+<div id="footer">Content &copy;2013</div>
+</body>
+</html>
